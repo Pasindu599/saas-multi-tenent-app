@@ -43,7 +43,7 @@ public class AbstractEntity {
 
 
     @LastModifiedDate
-    @Column(name = "updated_at", nullable = false, insertable = false)
+    @Column(name = "updated_at", insertable = false)
     private LocalDateTime updatedAt;
 
     @Column(name = "deleted", nullable = false)
@@ -54,6 +54,10 @@ public class AbstractEntity {
     protected void onCreate(){
         if (this.deleted == null) {
             this.deleted = false;  // set default value to false
+        }
+
+        if (this.tenantId == null) {
+            this.tenantId = "default";
         }
 
     }

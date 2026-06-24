@@ -1,4 +1,4 @@
-package controllers;
+package com.pasindu.saasmultitenentapp.controllers;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
