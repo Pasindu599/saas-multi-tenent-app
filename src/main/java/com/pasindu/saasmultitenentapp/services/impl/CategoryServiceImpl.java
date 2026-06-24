@@ -9,7 +9,9 @@ import jakarta.persistence.EntityNotFoundException;
 import com.pasindu.saasmultitenentapp.entities.Category;
 
 import java.util.Optional;
-
+import java.util.List;
+import java.util.stream.Collectors;
+ 
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -95,4 +97,11 @@ public class CategoryServiceImpl implements CategoryService {
         }
     }
 
+    @Override
+    public List<CategoryResponse> getAll() {
+        return this.categoryRepository.findAll()
+        .stream()
+        .map(this.categoryMapper::toResponse)
+        .collect(Collectors.toList());
+    }
 }

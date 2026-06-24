@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.pasindu.saasmultitenentapp.requests.CategoryRequest;
 import com.pasindu.saasmultitenentapp.responses.CategoryResponse;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/v1/categories")
@@ -68,5 +70,10 @@ public class CategoryController {
     ) {
         this.categoryService.delete(categoryId);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CategoryResponse>> getAllCategories() {
+        return ResponseEntity.ok(this.categoryService.getAll());
     }
 }
