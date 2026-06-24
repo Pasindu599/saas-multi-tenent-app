@@ -19,9 +19,11 @@ import lombok.extern.slf4j.Slf4j;
 
 import com.pasindu.saasmultitenentapp.mappers.CategoryMapper;
 import com.pasindu.saasmultitenentapp.repositories.CategoryRepository;
+import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Slf4j
+@Transactional
 public class CategoryServiceImpl implements CategoryService {
 
 
